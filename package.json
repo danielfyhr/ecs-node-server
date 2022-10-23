@@ -5,6 +5,7 @@
     "cdk-ecs-test": "bin/cdk-ecs-test.js"
   },
   "scripts": {
+    "deploy": "npm run build && cdk deploy",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
