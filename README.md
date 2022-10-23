@@ -1,14 +1,25 @@
-# Welcome to your CDK TypeScript project
+# ECS node server
 
-This is a blank project for CDK development with TypeScript.
+A node server deployed on AWS ECS with Application Load Balancer and Fargate. Infrastructure managed with CDK. Uses the [ApplicationLoadBalancedFargateService construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService.html).
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Deployment
 
-## Useful commands
+You need CDK installed (npm install -g aws-cdk)
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+```
+npm install -g aws-cdk
+```
+
+The docker image is built as a part of the deployment. I'm pretty sure you need to have docker cli.
+
+## Commands
+
+run `npm install` and then you can do
+
+- `npm run deploy` Does everything! Compiles ts to js, builds docker image and deploys the service!
+- `npm run build` Compiles ts to js
+- `npm run test` runs unit tests on the CDK-stack
+
+## Accessing the service
+
+Public url is an output from the CloudFormation stack. You will see it in the output after running `npm run deploy`. Open the link in a browser.
